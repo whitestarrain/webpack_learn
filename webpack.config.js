@@ -1,19 +1,19 @@
-const { resolve } = require('path')
+const { resolve } = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'build'),
-    filename: 'js/bundle-[name]-[hash:5].js'
+    filename: 'js/bundle-[name]-[hash:5].js',
   },
-  mode: 'development',
+  mode: 'none',
   module: {
     rules: [
       {
         test: /\.png$/,
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name]-[hash:5][ext]'
-        }
+          filename: 'img/[name]-[hash:5][ext]',
+        },
       },
       {
         test: /\.css$/,
@@ -22,19 +22,19 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true
-            }
+              modules: true,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ['autoprefixer']
-              }
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
+                plugins: ['autoprefixer'],
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
