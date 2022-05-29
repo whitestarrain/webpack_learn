@@ -14,6 +14,10 @@ module.exports = {
         generator: {
           filename: 'img/[name]-[hash:5][ext]'
         }
+      },
+      {
+        test: /\.css$/,
+        use: 'css-loader'
       }
     ]
   }
