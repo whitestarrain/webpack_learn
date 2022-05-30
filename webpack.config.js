@@ -35,6 +35,26 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              // 使用数组
+              [
+                '@babel/preset-env',
+                {
+                  // 数组的第二项为env选项
+                  targets: 'last 2 versions',
+                  useBuiltIns: 'usage',
+                  corejs: 3,
+                },
+              ],
+            ],
+          },
+        },
+      },
     ],
   },
 };
