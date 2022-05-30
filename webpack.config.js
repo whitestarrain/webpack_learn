@@ -1,10 +1,12 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'build'),
     filename: 'js/bundle-[name]-[hash:5].js',
+    clean: true,
   },
   mode: 'none',
   module: {
@@ -69,6 +71,9 @@ module.exports = {
       title: '测试',
       template: './src/temp.html',
       filename: 'temp.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: ['./src/public'],
     }),
   ],
 };
