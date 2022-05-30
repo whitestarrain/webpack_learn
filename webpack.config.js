@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -54,10 +55,20 @@ module.exports = {
               ],
             ],
             // 解决ES6和CommonJS模块导出的问题: https://babeljs.io/docs/en/options#sourcetype
-            // sourceType: 'unambiguous', 
+            // sourceType: 'unambiguous',
           },
         },
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/temp.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: '测试',
+      template: './src/temp.html',
+      filename: 'temp.html',
+    }),
+  ],
 };
