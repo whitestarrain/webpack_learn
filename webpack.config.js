@@ -37,6 +37,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -52,6 +53,8 @@ module.exports = {
                 },
               ],
             ],
+            // 解决ES6和CommonJS模块导出的问题: https://babeljs.io/docs/en/options#sourcetype
+            // sourceType: 'unambiguous', 
           },
         },
       },
