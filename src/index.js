@@ -16,4 +16,4 @@ console.log(indexCss);
 class TempCls {
   static url = 'tmepurl';
 }
-console.log(TempCls());
+console.log(new TempCls());
