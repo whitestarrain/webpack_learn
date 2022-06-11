@@ -1,6 +1,6 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import { hello, v1 } from './temp.js';
+import {hello, v1} from './temp.js';
 import tempUrl from './assets/temp.png';
 import indexCss from './css/home.css';
 
