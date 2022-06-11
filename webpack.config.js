@@ -76,4 +76,7 @@ module.exports = {
       patterns: ['./src/public'],
     }),
   ],
+  devServer:{
+
+  }
 };
