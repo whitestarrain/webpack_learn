@@ -5,13 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   entry: {
     index: './src/index.js',
-    temp1: './src/temp.js',
-    temp2: './src/temp2.js'
+    temp1: { import: './src/temp.js', dependOn: 'common' },
+    temp2: { import: './src/temp2.js', dependOn: 'common' },
+    common: 'axios'
   },
   output: {
     path: resolve(__dirname, 'build'),
     filename: 'js/bundle-[name]-[hash:5].js', // 如果entry是对象，此处的name为属性名称
-                                              // 上例中生成的是temp1.js，而不是temp.js
+    // 上例中生成的是temp1.js，而不是temp.js
     clean: true,
   },
   mode: 'none',
