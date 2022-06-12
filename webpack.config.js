@@ -3,10 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    temp1: './src/temp.js',
+    temp2: './src/temp2.js'
+  },
   output: {
     path: resolve(__dirname, 'build'),
-    filename: 'js/bundle-[name]-[hash:5].js',
+    filename: 'js/bundle-[name]-[hash:5].js', // 如果entry是对象，此处的name为属性名称
+                                              // 上例中生成的是temp1.js，而不是temp.js
     clean: true,
   },
   mode: 'none',
@@ -78,7 +83,7 @@ module.exports = {
       patterns: ['./src/public'],
     }),
   ],
-  devServer:{
+  devServer: {
 
   }
 };
